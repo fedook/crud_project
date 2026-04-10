@@ -8,8 +8,5 @@ Route::get('/', function () {
     return redirect()->route('products.index');
 });
 
-//Route::resource('categories', CategoryController::class)->only(['index', 'create', 'store']);
-
+Route::resource('categories', CategoryController::class)->only(['index', 'create', 'store']);
 Route::resource('products', ProductController::class);
-
-Route::resource('categories', CategoryController::class);

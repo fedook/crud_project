@@ -8,7 +8,7 @@
     @csrf
     
     <input type="text" name="cat_name" placeholder="Category Name"><br><br>
-    <input type="color" name="cat_color" placeholder="Category Color"><br><br>
+    <input type="text" name="cat_color" placeholder="Category Color"><br><br>
 
     <button type="submit">save</button>
 </form>

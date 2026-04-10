@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use App\Models\category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -12,7 +12,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        $categories = category::all();
         return view('categories.index', compact('categories'));
     }
 
@@ -34,10 +34,10 @@ class CategoryController extends Controller
             'cat_color' => 'required',
         ]);
 
-        Category::create($request->all());
+        category::create($request->all());
 
         return redirect()->route('categories.index')
-                         ->with('success', 'Category added successfully.');
+            ->with('success', 'Category created successfully.');
     }
 
     /**
@@ -53,7 +53,7 @@ class CategoryController extends Controller
      */
     public function edit(category $category)
     {
-        return view('categories.edit', compact('category'));
+        //
     }
 
     /**
@@ -61,15 +61,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, category $category)
     {
-        $request->validate([
-            'cat_name' => 'required',
-            'cat_color' => 'required',
-        ]);
-
-        $category->update($request->all());
-
-        return redirect()->route('categories.index')
-                         ->with('success', 'Category updated successfully.');
+        //
     }
 
     /**
@@ -77,9 +69,6 @@ class CategoryController extends Controller
      */
     public function destroy(category $category)
     {
-        $category->delete();
-
-        return redirect()->route('categories.index')
-                         ->with('success', 'Category deleted successfully.');
+        //
     }
 }
