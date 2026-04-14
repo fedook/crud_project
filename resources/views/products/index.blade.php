@@ -1,39 +1,59 @@
 @extends('layouts.app')
 @section('title', 'Products List')
+
 @section('content')
-
-@if(session('success'))
-    <div style="background-color: #d4edda; color: #155724; padding: 10px; margin-bottom: 20px; border: 1px solid #c3e6cb; border-radius: 5px;">
-        {{ session('success') }}
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold">Inventory</h2>
+        <a href="{{ route('products.create') }}" class="btn btn-dark btn-sm rounded-pill px-3">
+            + New Product
+        </a>
     </div>
-@endif
-    <h2>Products</h2>
 
-    <a href="{{ route('products.create') }}">Add Product</a>
-
-    <table border="1" cellpadding="10">
-            <tr>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Category</th>
-                <th>Actions</th>
-            </tr>
-
-            @foreach($products as $product)
+    <div class="table-responsive">
+        <table class="table table-hover align-middle">
+            <thead class="table-light">
                 <tr>
-                    <td>{{ $product->name }}</td>
-                    <td>₱{{$product->price}}</td>
-                   <td>{{ $product->category->cat_name ?? 'No Category' }}</td>
+                    <th class="border-0 text-secondary small text-uppercase">Name</th>
+                    <th class="border-0 text-secondary small text-uppercase">Price</th>
+                    <th class="border-0 text-secondary small text-uppercase">Category</th>
+                    <th class="border-0 text-secondary small text-uppercase text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{-- Changed @foreach to @forelse --}}
+                @forelse($products as $product)
+                <tr class="border-bottom">
+                    <td class="fw-semibold py-3">{{ $product->name }}</td>
+                    <td class="text-muted">₱{{ number_format($product->price, 2) }}</td>
                     <td>
-                        <a href="{{ route('products.edit', $product->id) }}">Edit</a>
-
-                        <form action="{{ route('products.destroy', $product->id) }}" method="POST" style="display: inline;">
+                        <span class="badge rounded-pill px-3" 
+                              style="background-color: {{ $product->category->cat_color ?? '#eeeeee' }}; 
+                                     color: #fff; font-weight: 500;">
+                            {{ $product->category->cat_name ?? 'Uncategorized' }}
+                        </span>
+                    </td>
+                    <td class="text-end">
+                        <a href="{{ route('products.edit', $product->id) }}" class="text-decoration-none me-3 text-primary small">Edit</a>
+                        
+                        <form action="{{ route('products.destroy', $product->id) }}" method="POST" class="d-inline">
                             @csrf
                             @method('DELETE')
-                            <button type="submit">Delete</button>
+                            <button type="submit" class="border-0 bg-transparent text-danger small p-0" onclick="return confirm('Delete?')">Delete</button>
                         </form>
                     </td>
                 </tr>
-            @endforeach
-    </table>
+                @empty
+                <tr>
+                    {{-- Fixed colspan to 4 to match the headers --}}
+                    <td colspan="4" class="text-center py-5 text-muted">
+                        <i class="bi bi-folder2-open display-4 d-block mb-3"></i>
+                        <p>No products found.</p>
+                    </td>
+                </tr>
+                @endforelse {{-- Changed to @endforelse --}}
+            </tbody>
+        </table>
+    </div>
+</div>
 @endsection

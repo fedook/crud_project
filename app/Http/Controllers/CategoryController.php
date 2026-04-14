@@ -29,11 +29,18 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'cat_name' => 'required',
-            'cat_color' => 'required',
-        ]);
+      
+    $request->validate([
+    'cat_name'  => 'required|string|max:255',
+    'cat_color' => [
+        'required',
+        
 
+        'regex:/^(#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})|Red|Blue|Green|Yellow|Orange|Purple|Black|White)$/i'
+    ],
+], [
+    'cat_color.regex' => 'Please enter a valid color name (Red, Blue, etc.) or a Hex code (#ff0000).',
+]);
         Category::create($request->all());
 
         return redirect()->route('categories.index')
