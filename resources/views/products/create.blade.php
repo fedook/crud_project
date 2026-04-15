@@ -4,16 +4,24 @@
 @section('page_title', 'Inventory Management')
 
 @section('content')
+
+@if(session('success'))
+    <div class="alert alert-success alert-dismissible fade show border-0 shadow-sm mb-4" role="alert">
+        <i class="bi bi-check-circle-fill me-2"></i>
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif
 <div class="row justify-content-center">
     <div class="col-md-8"> {{-- Slightly wider for product details --}}
         <div class="card shadow-sm border-0">
-            <div class="card-header bg-white py-3">
-                <h5 class="card-title mb-0 fw-bold text-primary">
+            <div class="card-header bg-dark py-3">
+                <h5 class="card-title mb-0 fw-bold text-white">
                     <i class="bi bi-box-seam me-2"></i>Add New Product
                 </h5>
             </div>
             
-            <div class="card-body p-4">
+            <div class="card-body bg-body-secondary p-4">
                 <form method="POST" action="{{ route('products.store') }}">
                     @csrf
                     

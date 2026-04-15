@@ -66,18 +66,24 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, category $category)
-    {
-        $request->validate([
-            'cat_name' => 'required',
-            'cat_color' => 'required',
-        ]);
+    public function update(Request $request, Category $category)
+{
+    $request->validate([
+    'cat_name'  => 'required|string|max:255',
+    'cat_color' => [
+        'required',
+        
 
-        $category->update($request->all());
+        'regex:/^(#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})|Red|Blue|Green|Yellow|Orange|Purple|Black|White|brown)$/i'
+    ],
+], [
+    'cat_color.regex' => 'Please enter a valid color name (Red, Blue, etc.) or a Hex code (#ff0000).',
+]);
+        Category::create($request->all());
 
         return redirect()->route('categories.index')
-                         ->with('success', 'Category updated successfully.');
-    }
+                         ->with('success', 'Category Updated successfully.');
+}
 
     /**
      * Remove the specified resource from storage.

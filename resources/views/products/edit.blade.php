@@ -4,10 +4,18 @@
 @section('page_title', 'Modify Inventory')
 
 @section('content')
+
+@if(session('success'))
+    <div class="alert alert-success alert-dismissible fade show border-0 shadow-sm mb-4" role="alert">
+        <i class="bi bi-check-circle-fill me-2"></i>
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif
 <div class="row justify-content-center">
     <div class="col-md-8 ">
         <div class="card shadow-sm border-0">
-            <div class="card-header bg-secondary py-3 border-bottom">
+            <div class="card-header bg-dark py-3 border-bottom">
                 <div class="d-flex align-items-center justify-content-between">
                     <h5 class="card-title mb-0 fw-bold text-white">
                         <i class="bi bi-pencil-square me-2"></i>Edit Product: {{ $product->name }}

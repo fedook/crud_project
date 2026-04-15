@@ -4,14 +4,25 @@
 @section('page_title', 'Modify Category')
 
 @section('content')
+
+@if(session('success'))
+    <div class="alert alert-success alert-dismissible fade show border-0 shadow-sm mb-4" role="alert">
+        <i class="bi bi-check-circle-fill me-2"></i>
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif
 <div class="row justify-content-center">
-    <div class="col-md-6">
-        <div class="card shadow-sm border-0">
-            <div class="card-header bg-white py-3 border-bottom">
-                <h5 class="card-title mb-0 fw-bold text-warning">
+    <div class="col-md-6 ">
+        <div class="card shadow-sm bg-body-secondary border-0">
+            <div class="card-header bg-dark py-3 border-bottom">
+                 <div class="d-flex align-items-center justify-content-between">
+                <h5 class="card-title mb-0  fw-bold text-white">
                     <i class="bi bi-pencil-square me-2"></i>Edit: {{ $category->cat_name }}
                 </h5>
+                 <span class="badge bg-light text-dark border shadow-sm">ID: #{{ $category->id }}</span>
             </div>
+        </div>
             
             <div class="card-body p-4">
                 <form method="POST" action="{{ route('categories.update', $category->id) }}">

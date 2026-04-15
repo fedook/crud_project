@@ -4,13 +4,21 @@
 @section('page_title', 'Create New Category') {{-- Matches the header in our new layout --}}
 
 @section('content')
+
+@if(session('success'))
+    <div class="alert alert-success alert-dismissible fade show border-0 shadow-sm mb-4" role="alert">
+        <i class="bi bi-check-circle-fill me-2"></i>
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif
 <div class="row justify-content-center">
     <div class="col-md-6">
         <div class="card shadow-sm">
-            <div class="card-header bg-white py-3">
-                <h5 class="card-title mb-0 fw-bold text-primary">Add New Category</h5>
+            <div class="card-header bg-dark py-3">
+                <h5 class="card-title mb-0 fw-bold text-white">Add New Category</h5>
             </div>
-            <div class="card-body p-4">
+            <div class="card-body bg-body-secondary p-4">
                 <form method="POST" action="{{ route('categories.store') }}">
                     @csrf
                     
