@@ -5,13 +5,13 @@
 
 @section('content')
 <div class="row justify-content-center">
-    <div class="col-md-8">
+    <div class="col-md-8 ">
         <div class="card shadow-sm border-0">
-            <div class="card-header bg-white py-3 border-bottom">
+            <div class="card-header bg-secondary py-3 border-bottom">
                 <div class="d-flex align-items-center justify-content-between">
-                    <h5 class="card-title mb-0 fw-bold text-warning">
+                    <h5 class="card-title mb-0 fw-bold text-white">
                         <i class="bi bi-pencil-square me-2"></i>Edit Product: {{ $product->name }}
-                    </h5>
+                    </h5> 
                     <span class="badge bg-light text-dark border shadow-sm">ID: #{{ $product->id }}</span>
                 </div>
             </div>
@@ -38,7 +38,7 @@
                         <div class="col-md-6 mb-3">
                             <label for="price" class="form-label fw-semibold">Price</label>
                             <div class="input-group">
-                                <span class="input-group-text bg-light">$</span>
+                                <span class="input-group-text bg-light">₱</span>
                                 <input type="number" 
                                        step="0.01" 
                                        name="price" 

@@ -32,19 +32,23 @@
                     </div>
 
                     <div class="mb-4">
-                        <label for="cat_color" class="form-label fw-semibold">Category Color</label>
-                        <div class="d-flex align-items-center gap-3">
-                            <input type="color" 
-                                   name="cat_color" 
-                                   id="cat_color" 
-                                   class="form-control form-control-color shadow-sm" 
-                                   value="{{ old('cat_color', $category->cat_color) }}" 
-                                   title="Choose your color">
-                            <span class="text-muted small">Select the display color for this category</span>
-                        </div>
-                    </div>
+                            <label for="cat_color" class="form-label fw-semibold">Category Color</label>
+                            <input type="text" 
+                                name="cat_color" 
+                                id="cat_color" 
+                                class="form-control @error('cat_color') is-invalid @enderror" 
+                                placeholder="e.g. #ff0000 or Blue" 
+                                value="{{ old('cat_color', $category->cat_color) }}"
+                                required> 
 
-                    <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+                            {{-- This displays the error message if validation fails --}}
+                            @error('cat_color')
+                                <div class="invalid-feedback">
+                                    <i class="bi bi-exclamation-circle"></i> {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                                            <div class="d-flex justify-content-between align-items-center pt-3 border-top">
                         <a href="{{ route('categories.index') }}" class="btn btn-outline-secondary">
                             <i class="bi bi-x-circle me-1"></i> Cancel
                         </a>

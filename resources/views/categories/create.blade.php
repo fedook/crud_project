@@ -8,7 +8,7 @@
     <div class="col-md-6">
         <div class="card shadow-sm">
             <div class="card-header bg-white py-3">
-                <h5 class="card-title mb-0 fw-bold text-primary">Category Details</h5>
+                <h5 class="card-title mb-0 fw-bold text-primary">Add New Category</h5>
             </div>
             <div class="card-body p-4">
                 <form method="POST" action="{{ route('categories.store') }}">

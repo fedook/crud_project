@@ -36,7 +36,7 @@
 
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2 class="fw-bold">Inventory</h2>
+        <h2 class="fw-bold">Categories</h2>
         <a href="{{ route('categories.create') }}" class="btn btn-dark btn-sm rounded-pill px-3">
             + New Category
         </a>
@@ -45,7 +45,7 @@
     <div class="card-body p-0">
         <div class="table-responsive">
             <table class="table table-hover align-middle mb-0">
-                <thead class="table-light">
+                <thead class="table-primary">
                     <tr>
                         <th class="ps-4" style="width: 40%">Category Name</th>
                         <th style="width: 30%">Color Theme</th>

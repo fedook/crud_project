@@ -9,7 +9,7 @@
         <div class="card shadow-sm border-0">
             <div class="card-header bg-white py-3">
                 <h5 class="card-title mb-0 fw-bold text-primary">
-                    <i class="bi bi-box-seam me-2"></i>Register New Product
+                    <i class="bi bi-box-seam me-2"></i>Add New Product
                 </h5>
             </div>
             
@@ -34,7 +34,7 @@
                         <div class="col-md-6 mb-3">
                             <label for="price" class="form-label fw-semibold">Price</label>
                             <div class="input-group">
-                                <span class="input-group-text bg-light text-muted">$</span>
+                                <span class="input-group-text bg-light text-muted">₱</span>
                                 <input type="number" 
                                        step="0.01" 
                                        name="price" 
