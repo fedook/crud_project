@@ -79,7 +79,7 @@ class CategoryController extends Controller
 ], [
     'cat_color.regex' => 'Please enter a valid color name (Red, Blue, etc.) or a Hex code (#ff0000).',
 ]);
-        Category::create($request->all());
+       $category->update($request->all());
 
         return redirect()->route('categories.index')
                          ->with('success', 'Category Updated successfully.');
