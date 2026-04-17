@@ -14,7 +14,7 @@
 @endif
 <div class="row justify-content-center">
     <div class="col-md-8 ">
-        <div class="card shadow-sm border-0">
+        <div class="card shadow-sm bg-body-secondary border-0">
             <div class="card-header bg-dark py-3 border-bottom">
                 <div class="d-flex align-items-center justify-content-between">
                     <h5 class="card-title mb-0 fw-bold text-white">

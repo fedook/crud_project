@@ -51,8 +51,7 @@
                                 placeholder="e.g. #ff0000 or Blue" 
                                 value="{{ old('cat_color', $category->cat_color) }}"
                                 required> 
-
-                            {{-- This displays the error message if validation fails --}}
+                                
                             @error('cat_color')
                                 <div class="invalid-feedback">
                                     <i class="bi bi-exclamation-circle"></i> {{ $message }}

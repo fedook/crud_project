@@ -32,7 +32,7 @@
                                    name="name" 
                                    id="name" 
                                    class="form-control @error('name') is-invalid @enderror" 
-                                   placeholder="e.g. Mechanical Keyboard" 
+                                   placeholder="Enter product name" 
                                    required>
                             @error('name')
                                 <div class="invalid-feedback">{{ $message }}</div>

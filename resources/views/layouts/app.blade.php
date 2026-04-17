@@ -13,7 +13,7 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            background: #6bc4e7;
+            background: #ffffff;
 
         }
 

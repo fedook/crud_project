@@ -36,7 +36,7 @@ class CategoryController extends Controller
         'required',
         
 
-        'regex:/^(#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})|Red|Blue|Green|Yellow|Orange|Purple|Black|White|brown)$/i'
+        'regex:/^(#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})|Red|Blue|Green|Yellow|Orange|Purple|Black|White|brown|cyan)$/i'
     ],
 ], [
     'cat_color.regex' => 'Please enter a valid color name (Red, Blue, etc.) or a Hex code (#ff0000).',
