@@ -26,7 +26,7 @@
                         <th class="py-3 px-4">Name</th>
                         <th class="py-3">Price</th>
                         <th class="py-3">Category</th>
-                        <th class="py-3 px-4 text-end" style="width: 180px;">Actions</th>
+                        <th class="py-3 px-4 text-center" style="width: 180px;">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
